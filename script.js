@@ -11,7 +11,7 @@ const canvas = document.getElementById('myCanvas');
 function reportWindowSize() {
     canvas.height = canvas.clientHeight;
     canvas.width = canvas.clientWidth;
-    
+
     console.log(`new height: ${canvas.height}`)
     console.log(`new width: ${canvas.width}`)
 }
@@ -23,6 +23,10 @@ const context = canvas.getContext('2d');
 
 var circles = []
 
+function Distance(x, y, x2, y2) {
+    return Math.sqrt(Math.pow(Math.abs(x - x2), 2) + Math.pow(Math.abs(y - y2), 2))
+}
+
 function Circle(x, y, dx, dy, radius, color) {
 
     this.x = x;
@@ -32,21 +36,31 @@ function Circle(x, y, dx, dy, radius, color) {
     this.radius = radius
     this.color = color
 
-
     this.draw = function () {
 
         // line
-        context.strokeStyle = this.color;
-        context.beginPath();
-        context.moveTo(this.x, this.y);
-        context.lineTo(circles[0].x, circles[0].y);
-        context.stroke();
+        var connections = 0
+        for (let i of circles) {
+
+            if (Distance(this.x, this.y, i.x, i.y) < 250) {
+                context.strokeStyle = this.color;
+                context.beginPath();
+                context.lineWidth = 0.5;
+                context.moveTo(this.x, this.y);
+                context.lineTo(i.x, i.y);
+                context.stroke();
+
+                connections += 1;
+            }
+
+        }
+
 
         // circle
         context.beginPath();
         context.fillStyle = this.color;
         context.lineWidth = 2;
-        context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+        context.arc(this.x, this.y, this.radius + connections * 3, 0, 2 * Math.PI, false);
         context.fill();
 
 
@@ -54,10 +68,10 @@ function Circle(x, y, dx, dy, radius, color) {
 
     this.update = function () {
 
-        if(this.x > canvas.width) this.x = canvas.width - 1 
-        if(this.y > canvas.height) this.y = canvas.height - 1 
-        if(this.x < 0) this.x = 0
-        if(this.y < 0) this.y = 0
+        if (this.x > canvas.width) this.x = canvas.width - 1
+        if (this.y > canvas.height) this.y = canvas.height - 1
+        if (this.x < 0) this.x = 0
+        if (this.y < 0) this.y = 0
 
         if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
 
@@ -77,8 +91,8 @@ function Circle(x, y, dx, dy, radius, color) {
 
 }
 
-for (var i = 0; i < 10; i++) {
-    var radius = GetRandomInt(20, 30);
+for (var i = 0; i < 20; i++) {
+    var radius = GetRandomInt(5, 10);
     var centerX = GetRandomInt(radius, canvas.width - radius);
     var centerY = GetRandomInt(radius, canvas.height - radius);
 
