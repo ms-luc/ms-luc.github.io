@@ -4,6 +4,9 @@ function GetRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
+const audio = new Audio('mixkit-cooking-stopwatch-alert-1792.wav');
+audio.volume = 0.2
+
 const canvas = document.getElementById('myCanvas');
 
 
@@ -35,6 +38,7 @@ function Circle(x, y, dx, dy, radius, color) {
     this.dy = dy;
     this.radius = radius
     this.color = color
+    this.connections = 0
 
     this.draw = function () {
 
@@ -53,6 +57,14 @@ function Circle(x, y, dx, dy, radius, color) {
                 connections += 1;
             }
 
+        }
+        if (connections != this.connections) {
+            this.connections = connections
+
+            if (connections > 7) {
+                const newAudio = audio.cloneNode()
+                newAudio.play()
+            }
         }
 
 
