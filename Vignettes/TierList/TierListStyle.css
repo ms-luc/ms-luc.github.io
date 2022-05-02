@@ -74,3 +74,10 @@ ul {
 ul li::before {
     color: gray;
 }
+
+.vanish{
+    font-size: 11pt;
+    background-color: lightsteelblue;
+    padding: 10pt;
+    border: none;
+}

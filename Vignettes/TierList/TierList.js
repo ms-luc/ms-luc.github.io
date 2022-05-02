@@ -209,5 +209,7 @@ anime.timeline({loop: false})
   })
 
 
-
+function ToIndex(){
+    window.location.replace("../../Index.html")
+}
 
