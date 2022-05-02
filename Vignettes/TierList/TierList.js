@@ -42,7 +42,7 @@ const TierList = { "items":
             "tier": TierTypes.S
         },
         {
-            "name": "Sorcerer's Stone",
+            "name": "Harry Potter and the Philosopher's Stone",
             "tier": TierTypes.S
         },
         {
@@ -77,12 +77,12 @@ const TierList = { "items":
         },
         
         {
-            "name": "HP Series (Excluding 1 and 6)",
+            "name": "Harry Potter Series",
             "tier": TierTypes.A
         },
         
         {
-            "name": "Narnia Series (Excluding 2,3,8)",
+            "name": "Narnia Series",
             "title" : "",
             "tier": TierTypes.A
         },
@@ -96,7 +96,7 @@ const TierList = { "items":
         },
         
         {
-            "name": "Discworld Series (Book 1 and 2)",
+            "name": "Discworld Series (Book I & II)",
             "tier": TierTypes.A
         },
         
@@ -105,7 +105,11 @@ const TierList = { "items":
             "tier": TierTypes.A
         },
         {
-            "name": "Earthsea Series (Excluding 4)",
+            "name": "The Tombs of Atuan",
+            "tier": TierTypes.A
+        },
+        {
+            "name": "Earthsea Series",
             "tier": TierTypes.B
         },
         
