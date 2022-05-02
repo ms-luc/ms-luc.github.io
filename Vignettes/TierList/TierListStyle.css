@@ -60,6 +60,10 @@ table, th, td {
     color: black;
 }
 
+.HarshWarning{
+    color: whitesmoke;
+}
+
 .Unrated{
     color: gray
 }

@@ -26,6 +26,11 @@ const TierTypes = {
     "Unrated" : "unrated",
 }
 
+const Bias = {
+    "Harsh" : "HarshWarning",
+    "Generous" : "GenerousWarning"
+}
+
 const TierList = { "items":
     [
         {
@@ -123,11 +128,13 @@ const TierList = { "items":
         },
         {
             "name": "Deerslayer",
-            "tier": TierTypes.D
+            "tier": TierTypes.D,
+            "bias": Bias.Harsh
         },
         {
             "name": "Tehanu",
-            "tier": TierTypes.F
+            "tier": TierTypes.F,
+            "bias": Bias.Harsh
         },
         
         {
@@ -157,9 +164,11 @@ function UL() {
     this.list = document.createElement('ul')
 
     this.Add = function (item) {
-        this.li = document.createElement('li')
-        this.li.innerHTML = item
-        this.list.appendChild(this.li)
+        var li = document.createElement('li')
+        li.innerHTML = item
+        li.classList.add("ml12");
+        this.list.appendChild(li)
+        return li;
     }
 
     this.GetElement = function () {
@@ -175,15 +184,29 @@ for(const [key, value] of Object.entries(TierTypes)){
 
     for (var item of TierList.items) {
 
-        if(item.tier == value)
-            list.Add(item.name)
+        if(item.tier == value){
+            var li = list.Add(item.name);
+            if('bias' in item){
+                li.classList.add(item.bias)
+            }
+        }
+
     }
 
     row.appendChild(list.GetElement())
     
 }
 
-
+anime.timeline({loop: false})
+  .add({
+    targets: '.ml12',
+    translateX: [40,0],
+    translateZ: 0,
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 7000,
+    delay: (el, i) => 500 + 30 * i
+  })
 
 
 
