@@ -9,7 +9,8 @@ Add contellation names
 
 
 
-var darkMode = GetRandomInt(0, 3);
+// var darkMode = GetRandomInt(0, 3);
+var darkMode = 0
 
 console.log(`dark mode ${darkMode}`)
 if(darkMode == 2) window.location.replace("./Vignettes/TierList/TierList.html");
@@ -181,6 +182,10 @@ for (var i = 0; i < total_circles; i++) {
             color
         )
     )
+}
+
+function ToIndex(){
+    window.location.replace("https://ms-luc.github.io/")
 }
 
 function animate() {
