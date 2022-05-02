@@ -1,12 +1,13 @@
 html{
     background-color: black;
     font-family: "Trebuchet MS";
+    color: gray;
 }
 
 table, th, td {
     border: 5pt solid;
     border-color: black;
-    color: gray;
+    color: whitesmoke;
   }
   
   table {
@@ -26,7 +27,7 @@ table, th, td {
 
 .Tier{
     font-size: large;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 10px; 
     width: 50px;
     height: 50px;  
@@ -63,6 +64,9 @@ table, th, td {
     color: gray
 }
 
+ul {
+    list-style-type: circle;
+}
 ul li::before {
     color: gray;
 }

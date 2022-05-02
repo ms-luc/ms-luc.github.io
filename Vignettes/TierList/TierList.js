@@ -41,11 +41,7 @@ const TierList = { "items":
             "tier": TierTypes.S
         },
         {
-            "name": "Eugine",
-            "tier": TierTypes.S
-        },
-        {
-            "name": "The Hobbit",
+            "name": "Евгений Онегин",
             "tier": TierTypes.S
         },
         {
@@ -53,16 +49,16 @@ const TierList = { "items":
             "tier": TierTypes.S
         },
         {
-            "name": "The last king of Narnia",
+            "name": "The Last Battle",
             "tier": TierTypes.S
         },
         {
-            "name": "The Witch the lion and the Wardrobe",
+            "name": "The Lion The Witch and The Wardrobe",
             "tier": TierTypes.S
         },
         {
             "name": "The Midnight Library",
-            "tier": TierTypes.A
+            "tier": TierTypes.S
         },
         {
             "name": "LOTR III",
@@ -100,7 +96,7 @@ const TierList = { "items":
         },
         
         {
-            "name": "Sobachie Sertse",
+            "name": "Собачье Сердце",
             "tier": TierTypes.A
         },
         {
@@ -109,7 +105,7 @@ const TierList = { "items":
         },
         
         {
-            "name": "Master i Margarita",
+            "name": "Мастер и Маргарита",
             "tier": TierTypes.B
         },
         {
@@ -161,7 +157,7 @@ function UL() {
     this.list = document.createElement('ul')
 
     this.Add = function (item) {
-        this.li = document.createElement('ul')
+        this.li = document.createElement('li')
         this.li.innerHTML = item
         this.list.appendChild(this.li)
     }
