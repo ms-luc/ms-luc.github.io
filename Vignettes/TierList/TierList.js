@@ -210,6 +210,6 @@ anime.timeline({loop: false})
 
 
 function ToIndex(){
-    window.location.replace("../../Index.html")
+    window.location.replace("https://ms-luc.github.io/")
 }
 
