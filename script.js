@@ -1,3 +1,23 @@
+/*
+
+Dark mode = constellations
+ADD CLOUDS!! in dark mode
+And a moon
+Add contellation names
+
+*/
+
+var darkMode = GetRandomInt(0, 2);
+if(darkMode == 1){
+    
+    darkMode = true
+    document.body.style.background = "black"
+}
+else
+    darkMode = false
+
+console.log(`DARK MODE ${darkMode}`)
+
 function GetRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -9,6 +29,8 @@ audio.volume = 0.2
 
 const canvas = document.getElementById('myCanvas');
 
+if(darkMode) canvas.style.background = 'linear-gradient('
++ 'to bottom' + ', ' + 'black' + ', ' + 'darkblue' + ')';
 
 
 function reportWindowSize() {
@@ -46,6 +68,8 @@ function Circle(x, y, dx, dy, radius, color) {
         var connections = 0
         for (let i of circles) {
 
+            if(darkMode && radius < 9) break
+
             if (Distance(this.x, this.y, i.x, i.y) < 250) {
                 context.strokeStyle = this.color;
                 context.beginPath();
@@ -55,6 +79,10 @@ function Circle(x, y, dx, dy, radius, color) {
                 context.stroke();
 
                 connections += 1;
+
+                if(darkMode && connections > 1){
+                    break
+                }
             }
 
         }
@@ -67,12 +95,21 @@ function Circle(x, y, dx, dy, radius, color) {
             }
         }
 
-
         // circle
         context.beginPath();
-        context.fillStyle = this.color;
+
+        var color = this.color
+        if(darkMode && connections == 0){
+            color = `rgb(150,150,255)`
+        }
+        context.fillStyle = color;
         context.lineWidth = 2;
-        context.arc(this.x, this.y, this.radius + connections * 3, 0, 2 * Math.PI, false);
+
+        var raidus2 = this.radius + connections * 3
+        if(darkMode){
+            raidus2 = this.radius + connections / 2
+        }
+        context.arc(this.x, this.y, raidus2, 0, 2 * Math.PI, false);
         context.fill();
 
 
@@ -103,8 +140,13 @@ function Circle(x, y, dx, dy, radius, color) {
 
 }
 
-for (var i = 0; i < 20; i++) {
+total_circles = 20
+
+if(darkMode)total_circles = 100
+
+for (var i = 0; i < total_circles; i++) {
     var radius = GetRandomInt(5, 10);
+    if(darkMode)radius/ 3
     var centerX = GetRandomInt(radius, canvas.width - radius);
     var centerY = GetRandomInt(radius, canvas.height - radius);
 
@@ -112,13 +154,24 @@ for (var i = 0; i < 20; i++) {
     var g = GetRandomInt(100, 255)
     var b = GetRandomInt(100, 255)
     var color = `rgba(${r},${g},${b}, 0.5)`
+    if(darkMode){
+        color = "rgb(255,255,255)"
+    }
+
+    var dx = (Math.random() - 0.5) * 2;
+    var dy = (Math.random() - 0.5) * 2;
+
+    if(darkMode){
+        dx = (GetRandomInt(0,100) - 50) / 1000
+        dy = (GetRandomInt(0,100) - 50) / 1000
+    }
 
     circles.push(
         new Circle(
             centerX,
             centerY,
-            (Math.random() - 0.5) * 2,
-            (Math.random() - 0.5) * 2,
+            dx,
+            dy,
             radius,
             color
         )
