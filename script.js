@@ -7,7 +7,12 @@ Add contellation names
 
 */
 
-var darkMode = GetRandomInt(0, 2);
+
+
+var darkMode = GetRandomInt(0, 3);
+
+console.log(`dark mode ${darkMode}`)
+if(darkMode == 2) window.location.replace("./Vignettes/TierList/TierList.html");
 if(darkMode == 1){
     
     darkMode = true
