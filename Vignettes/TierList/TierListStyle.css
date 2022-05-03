@@ -81,3 +81,18 @@ ul li::before {
     padding: 10pt;
     border: none;
 }
+
+.button-2 {
+    background-color: rgba(51, 51, 51, 0.05);
+    border-radius: 8px;
+    border-width: 0;
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 10pt;
+    padding: 10px 12px;
+    text-align: center;
+}

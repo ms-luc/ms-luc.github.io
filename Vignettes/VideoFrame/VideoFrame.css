@@ -1,0 +1,45 @@
+
+html{
+    background-color: lightblue;
+}
+
+body{
+    display: block;
+}
+
+.outer-border{
+    border: 10pt solid;
+    border-color: black;
+}
+
+.inner-border{
+    flex-flow: row;
+    width:100%;
+    min-height:50px;
+}
+
+/* .video-container {
+    height: 300px;
+    width: 300px; */
+    /* position: relative; */
+    /* display: block; */
+    /* align-items: center; */
+/* } */
+
+.video-container video {
+  /* height: 100%;
+  object-fit: cover;
+  z-index: 0; */
+  /* display:block; */
+  flex-grow: 1;
+}
+
+/* Just styling the content of the div, the *magic* in the previous rules */
+/* .video-container .caption {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  color: #491c1c;
+  padding: 10px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+} */

@@ -9,15 +9,17 @@ body {
 }
 
 body {
-    display: block;
-    align-items: stretch;
+    display: flex;
+   flex-flow: column;
+    /* align-items: stretch; */
 }
 
 #myCanvas {
-    width: 100%;
-    height: 94%;
-    top: 0px;
+    /* width: 100%; */
+    /* height: 92%; */
+    /* top: 0px; */
     background-color: whitesmoke;
+    flex-grow: 1;
 }
 
 .navbar {
@@ -28,7 +30,7 @@ body {
     background-color: rgba(51, 51, 51, 0.05);
     border-radius: 8px;
     border-width: 0;
-    color: #333333;
+    color: rgb(51, 51, 51);
     cursor: pointer;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 25px;
